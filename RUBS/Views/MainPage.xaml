@@ -4,22 +4,30 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <VerticalStackLayout>
-        <ListView x:Name="ListaEstabelecimentos">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label FontSize="20" Text="{Binding nome_fantasia}" />
-                            <Label FontSize="14" Text="{Binding endereco_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding numero_estabelecimento}"/>
-                            <Label FontSize="14" Text="{Binding numero_telefone_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding descricao_turno_atendimento}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
 
-    </VerticalStackLayout>
+    <ListView x:Name="ListaEstabelecimentos"
+              HasUnevenRows="True"
+              SeparatorVisibility="Default"
+              VerticalOptions="FillAndExpand" 
+        IsPullToRefreshEnabled="True"
+        
+        ItemsSource="{Binding Estabelecimentos}">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label FontSize="20" Text="{Binding nome_fantasia}" />
+                        <Label FontSize="14" Text="{Binding endereco_estabelecimento}" />
+                        <Label FontSize="14" Text="{Binding numero_estabelecimento}" />
+                        <Label FontSize="14" Text="{Binding numero_telefone_estabelecimento}" />
+                        <Label FontSize="14" Text="{Binding descricao_turno_atendimento}" />
+                        <Label FontSize="14" Text="{Binding latitude_estabelecimento_decimo_grau}" />
+                        <Label FontSize="14" Text="{Binding longitude_estabelecimento_decimo_grau}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
 </ContentPage>
