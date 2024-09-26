@@ -5,13 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
 
-    <ListView x:Name="ListaEstabelecimentos"
-              HasUnevenRows="True"
-              SeparatorVisibility="Default"
-              VerticalOptions="FillAndExpand" 
+    <ListView
+        x:Name="ListaEstabelecimentos"
+        HasUnevenRows="True"
         IsPullToRefreshEnabled="True"
-        
-        ItemsSource="{Binding Estabelecimentos}">
+        ItemsSource="{Binding Estabelecimentos}"
+        SeparatorVisibility="Default"
+        VerticalOptions="FillAndExpand">
 
         <ListView.ItemTemplate>
             <DataTemplate>
