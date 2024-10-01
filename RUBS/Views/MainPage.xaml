@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage
+<ContentPage
     x:Class="RUBS.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ContentPage>
-        <Button 
-            x:Name="EstadoButton"
-            Margin="2, 16"
-            Clicked="OnAddUserClicked"
-            HeightRequest="102"
-            WidthRequest="343"
-            HorizontalOptions="FillAndExpand"
-            Text="Coloque o estado"
-            VerticalOptions="CenterAndExpand"
-         />
+    <StackLayout Padding="10">
+        <Label Text="Insira o código do município" FontSize="20" />
+        <Entry x:Name="CodigoMunicipioEntry" Placeholder="Ex: 317070" Keyboard="Numeric" />
 
+        <Button Text="Buscar Estabelecimentos" Clicked="BuscarEstabelecimentosClicked" />
 
-
-    </ContentPage> 
-    
-</TabbedPage>
+        <ListView x:Name="ListaEstabelecimentos">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10">
+                            <Label FontSize="20" Text="{Binding nome_fantasia}" />
+                            <Label FontSize="14" Text="{Binding endereco_estabelecimento}" />
+                            <Label FontSize="14" Text="{Binding numero_estabelecimento}"/>
+                            <Label FontSize="14" Text="{Binding numero_telefone_estabelecimento}" />
+                            <Label FontSize="14" Text="{Binding descricao_turno_atendimento}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
