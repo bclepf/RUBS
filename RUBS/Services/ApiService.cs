@@ -1,26 +1,51 @@
 ﻿using Newtonsoft.Json;
+using System.Net.Http;
+using System.Threading.Tasks;
+using RUBS.Services;
 
-public class ApiService
+namespace RUBS.Services
 {
-    private readonly HttpClient _httpClient;
-
-    public ApiService()
+    public class ApiService
     {
-        _httpClient = new HttpClient();
-    }
+        private readonly HttpClient _httpClient;
+        private readonly DatabaseService _databaseService;
 
-    public async Task<List<Estabelecimento>> GetEstabelecimentosAsync()
-    {
-        var url = "https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_municipio=317070&limit=100&offset=1";
-        var response = await _httpClient.GetAsync(url);
-
-        if (response.IsSuccessStatusCode)
+        public ApiService()
         {
-            var content = await response.Content.ReadAsStringAsync();
-            var estabelecimentosResponse = JsonConvert.DeserializeObject<EstabelecimentosResponse>(content);
-            return estabelecimentosResponse?.estabelecimentos;
+            _httpClient = new HttpClient();
+            _databaseService = new DatabaseService();
         }
 
-        return null;
+        // Novo método para fazer a busca com código de município e controle de paginação
+        public async Task GetEstabelecimentosPaginadosAsync(string codigoMunicipio)
+        {
+            int offset = 1;
+            int limit = 1;
+            bool continuar = true;
+
+            while (continuar)
+            {
+                string url = $"https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_municipio={codigoMunicipio}&limit={limit}&offset={offset}";
+                var response = await _httpClient.GetStringAsync(url);
+                var result = JsonConvert.DeserializeObject<List<estabelecimentos>>(response);
+
+                // Se a resposta vier vazia, interrompe o loop
+                if (result == null || result.Count == 0)
+                {
+                    continuar = false;
+                }
+                else
+                {
+                    // Salva os estabelecimentos no banco
+                    foreach (var estabelecimento in result)
+                    {
+                        await _databaseService.SaveEstabelecimentoAsync(estabelecimento);
+                    }
+
+                    // Incrementa o offset para a próxima página
+                    offset += limit;
+                }
+            }
+        }
     }
 }
