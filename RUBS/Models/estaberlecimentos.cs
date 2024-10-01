@@ -1,6 +1,5 @@
 ﻿using SQLite;
 
-
 namespace RUBS
 {
     public class estabelecimentos

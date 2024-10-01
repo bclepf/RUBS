@@ -26,7 +26,7 @@
         </Tab>
         <Tab Icon="detalhes.svg">
             <ShellContent
-            ContentTemplate="{DataTemplate local:Views.MainPage}" />
+            ContentTemplate="{DataTemplate local:Views.ListagemEestabelecimentos}" />
         </Tab>
     </TabBar>
 

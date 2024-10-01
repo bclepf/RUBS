@@ -13,7 +13,3 @@
     public double longitude_estabelecimento_decimo_grau { get; set; }
 }
 
-public class EstabelecimentosResponse
-{
-    public List<Estabelecimento> estabelecimentos { get; set; }
-}
