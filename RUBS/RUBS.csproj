@@ -88,10 +88,16 @@
 	  <Compile Update="Views\MainPage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\ListagemEestabelecimentos.xaml.cs">
+	    <DependentUpon>ListagemEestabelecimentos.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\MainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ListagemEestabelecimentos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

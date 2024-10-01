@@ -9,14 +9,13 @@
     Shell.TabBarBackgroundColor="#39559E"
     Shell.TabBarForegroundColor="#E1395F">
 
-<<<<<<< HEAD
+
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:Views.MainPage}"
         Route="MainPage" />
-=======
-    <TabBar>
 
+    <TabBar>
         <Tab Icon="home.svg">
             <ShellContent
                 ContentTemplate="{DataTemplate local:Views.MainPage}" />
@@ -29,9 +28,6 @@
             <ShellContent
             ContentTemplate="{DataTemplate local:Views.MainPage}" />
         </Tab>
-
-
     </TabBar>
->>>>>>> 58a5c653305fc6b39d70a81cc63efd98efecd167
 
 </Shell>
