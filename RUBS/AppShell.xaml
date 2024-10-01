@@ -9,25 +9,19 @@
     Shell.TabBarBackgroundColor="#39559E"
     Shell.TabBarForegroundColor="#E1395F">
 
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:Views.MainPage}"
-        Route="MainPage" />
-
-    <TabBar>
-        <Tab Icon="home.svg">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:Views.MainPage}" />
-        </Tab>
-        <Tab Icon="maps.svg">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:Views.MainPage}" />
-        </Tab>
-        <Tab Icon="detalhes.svg">
-            <ShellContent
-            ContentTemplate="{DataTemplate local:Views.ListagemEestabelecimentos}" />
-        </Tab>
-    </TabBar>
+        <TabBar>
+            <Tab Icon="home.svg">
+                <ShellContent
+                        ContentTemplate="{DataTemplate local:Views.MainPage}" />
+            </Tab>
+            <Tab Icon="maps.svg">
+                <ShellContent
+                        ContentTemplate="{DataTemplate local:Views.MainPage}" />
+            </Tab>
+            <Tab Icon="detalhes.svg">
+                <ShellContent
+                    ContentTemplate="{DataTemplate local:Views.ListagemEestabelecimentos}" />
+            </Tab>
+        </TabBar>
 
 </Shell>

@@ -6,7 +6,7 @@
     <StackLayout>
         <Button
             x:Name="EstadoButton"
-            Margin="2,16"
+            Margin="2,5"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
             Text="Coloque o estado"
@@ -14,7 +14,7 @@
             WidthRequest="343" />
         <Button
             x:Name="CidadeButton"
-            Margin="2,16"
+            Margin="2,5"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
             Text="Coloque a cidade"
