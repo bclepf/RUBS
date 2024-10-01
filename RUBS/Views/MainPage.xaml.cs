@@ -1,8 +1,6 @@
 namespace RUBS.Views;
-using RUBS.Services;
 public partial class MainPage : ContentPage
 {
-    private readonly ApiService _apiService;
 
     public MainPage()
     {

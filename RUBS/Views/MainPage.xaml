@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+<<<<<<< HEAD
     <StackLayout Padding="10">
         <Label Text="Insira o código do município" FontSize="20" />
         <Entry x:Name="CodigoMunicipioEntry" Placeholder="Ex: 317070" Keyboard="Numeric" />
@@ -26,4 +27,27 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+=======
+    <StackLayout>
+        <Button 
+            x:Name="EstadoButton"
+            Margin="2, 16"
+            HeightRequest="102"
+            WidthRequest="343"
+            HorizontalOptions="FillAndExpand"
+            Text="Coloque o estado"
+            VerticalOptions="CenterAndExpand"
+         />
+        <Button 
+            x:Name="CidadeButton"
+            Margin="2, 16"
+            HeightRequest="102"
+            WidthRequest="343"
+            HorizontalOptions="FillAndExpand"
+            Text="Coloque a cidade"
+            VerticalOptions="CenterAndExpand"
+         />
+    </StackLayout>
+
+>>>>>>> 58a5c653305fc6b39d70a81cc63efd98efecd167
 </ContentPage>
