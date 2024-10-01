@@ -5,11 +5,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:RUBS"
     Title="RUBS"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.TabBarBackgroundColor="#39559E"
+    Shell.TabBarForegroundColor="#E1395F">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:Views.NewPage1}"
-        Route="MainPage" />
+    <TabBar>
+
+        <Tab Icon="home.svg">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:Views.MainPage}" />
+        </Tab>
+        <Tab Icon="maps.svg">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:Views.MainPage}" />
+        </Tab>
+        <Tab Icon="detalhes.svg">
+            <ShellContent
+            ContentTemplate="{DataTemplate local:Views.MainPage}" />
+        </Tab>
+
+
+    </TabBar>
 
 </Shell>

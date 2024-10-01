@@ -1,7 +1,6 @@
 namespace RUBS.Views;
-public partial class MainPage : TabbedPage
+public partial class MainPage : ContentPage
 {
-    private readonly ApiService _apiService;
 
     public MainPage()
     {

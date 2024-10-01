@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage
+<ContentPage
     x:Class="RUBS.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ContentPage>
+    <StackLayout>
         <Button 
             x:Name="EstadoButton"
             Margin="2, 16"
-            Clicked="OnAddUserClicked"
             HeightRequest="102"
             WidthRequest="343"
             HorizontalOptions="FillAndExpand"
             Text="Coloque o estado"
             VerticalOptions="CenterAndExpand"
          />
+        <Button 
+            x:Name="CidadeButton"
+            Margin="2, 16"
+            HeightRequest="102"
+            WidthRequest="343"
+            HorizontalOptions="FillAndExpand"
+            Text="Coloque a cidade"
+            VerticalOptions="CenterAndExpand"
+         />
+    </StackLayout>
 
-
-
-    </ContentPage> 
-    
-</TabbedPage>
+</ContentPage>
