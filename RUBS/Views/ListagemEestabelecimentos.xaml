@@ -5,19 +5,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <StackLayout Padding="10">
-        <Label Text="Insira o código do município" FontSize="20" />
-        <Entry x:Name="CodigoMunicipioEntry" Placeholder="Ex: 317070" Keyboard="Numeric" />
+        <!-- Removido o campo de entrada para o código do município, pois ele será passado automaticamente -->
 
-        <Button Text="Buscar Estabelecimentos" Clicked="BuscarEstabelecimentosClicked" />
+        <!-- Título da página -->
+        <Label FontSize="20" Text="Lista de Estabelecimentos" HorizontalOptions="Center" />
 
-        <ListView x:Name="ListaEstabelecimentos">
+        <!-- Lista de estabelecimentos -->
+        <ListView x:Name="ListaEstabelecimentos" HasUnevenRows="True" SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label FontSize="20" Text="{Binding nome_fantasia}" />
                             <Label FontSize="14" Text="{Binding endereco_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding numero_estabelecimento}"/>
+                            <Label FontSize="14" Text="{Binding numero_estabelecimento}" />
                             <Label FontSize="14" Text="{Binding numero_telefone_estabelecimento}" />
                             <Label FontSize="14" Text="{Binding descricao_turno_atendimento}" />
                         </StackLayout>

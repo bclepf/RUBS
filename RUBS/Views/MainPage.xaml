@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <StackLayout Padding="10">
+        <!-- Botão para selecionar o estado -->
         <Button
             x:Name="EstadoButton"
             HeightRequest="102"
@@ -11,6 +12,7 @@
             Text="Selecione um estado"
             Clicked="OnEstadoButtonClicked" />
 
+        <!-- Picker para selecionar o estado -->
         <Picker
             x:Name="EstadoPicker"
             Title="Selecione um estado"
@@ -19,6 +21,7 @@
             HorizontalOptions="FillAndExpand"
             SelectedIndexChanged="OnEstadoSelected" />
 
+        <!-- Botão para selecionar a cidade -->
         <Button
             x:Name="CidadeButton"
             HeightRequest="102"
@@ -27,11 +30,23 @@
             IsVisible="false"
             Clicked="OnCidadeButtonClicked" />
 
+        <!-- Picker para selecionar o município -->
         <Picker
             x:Name="MunicipioPicker"
             Title="Selecione um município"
             IsVisible="false"
             HeightRequest="40"
-            HorizontalOptions="FillAndExpand" />
+            HorizontalOptions="FillAndExpand"
+            SelectedIndexChanged="OnMunicipioSelected" />
+        <!-- Adicionado SelectedIndexChanged -->
+
+        <!-- Botão de confirmação -->
+        <Button
+            x:Name="ConfirmarButton"
+            Text="Confirmar seleção"
+            HeightRequest="102"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="False"
+            Clicked="OnConfirmarButtonClicked" />
     </StackLayout>
 </ContentPage>

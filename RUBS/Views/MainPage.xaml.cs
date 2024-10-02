@@ -9,6 +9,9 @@ namespace RUBS.Views
 {
     public partial class MainPage : ContentPage
     {
+        // Variável para armazenar o código do município selecionado
+        private string codigoMunicipioSelecionado;
+
         public MainPage()
         {
             InitializeComponent();
@@ -53,15 +56,35 @@ namespace RUBS.Views
 
             var resultado = JsonConvert.DeserializeObject<MunicipioResponse>(resposta);
 
+            // Define a fonte de itens do Picker, exibindo o nome do município
             MunicipioPicker.ItemsSource = resultado.macrorregiao_regiao_saude_municipios;
-            MunicipioPicker.ItemDisplayBinding = new Binding("municipio");
-            MunicipioPicker.IsVisible = true; 
+            MunicipioPicker.ItemDisplayBinding = new Binding("municipio"); // Mostra o nome do município
+            MunicipioPicker.IsVisible = true;
         }
-
 
         private void OnCidadeButtonClicked(object sender, EventArgs e)
         {
             MunicipioPicker.Focus();
+        }
+
+        private async void OnMunicipioSelected(object sender, EventArgs e)
+        {
+            if (MunicipioPicker.SelectedItem != null)
+            {
+                // Torna o botão de confirmação visível quando um município é selecionado
+                ConfirmarButton.IsVisible = true;
+            }
+        }
+
+        private async void OnConfirmarButtonClicked(object sender, EventArgs e)
+        {
+            if (MunicipioPicker.SelectedItem != null)
+            {
+                // Captura o código do município selecionado
+                var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
+                codigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
+                await Navigation.PushAsync(new ListagemEestabelecimentos(codigoMunicipioSelecionado));
+            }
         }
     }
 }
