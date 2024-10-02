@@ -1,14 +1,13 @@
-﻿using SQLite;
-
-namespace RUBS
+﻿namespace RUBS.Models
 {
-    public class cidade
+    public class MunicipioResponse
     {
-        [PrimaryKey, NotNull, AutoIncrement]
-        public int ID { get; set; }
-        [NotNull]
+        public List<Cidade> macrorregiao_regiao_saude_municipios { get; set; }
+    }
+
+    public class Cidade
+    {
         public string municipio { get; set; }
-        [NotNull]
         public string codigo_municipio { get; set; }
     }
 }

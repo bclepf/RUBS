@@ -3,22 +3,35 @@
     x:Class="RUBS.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
+    <StackLayout Padding="10">
         <Button
             x:Name="EstadoButton"
-            Margin="2,5"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
-            Text="Coloque o estado"
-            VerticalOptions="CenterAndExpand"
-            WidthRequest="343" />
+            Text="Selecione um estado"
+            Clicked="OnEstadoButtonClicked" />
+
+        <Picker
+            x:Name="EstadoPicker"
+            Title="Selecione um estado"
+            IsVisible="false"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand"
+            SelectedIndexChanged="OnEstadoSelected" />
+
         <Button
             x:Name="CidadeButton"
-            Margin="2,5"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
-            Text="Coloque a cidade"
-            VerticalOptions="CenterAndExpand"
-            WidthRequest="343" />
+            Text="Selecione uma cidade"
+            IsVisible="false"
+            Clicked="OnCidadeButtonClicked" />
+
+        <Picker
+            x:Name="MunicipioPicker"
+            Title="Selecione um município"
+            IsVisible="false"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand" />
     </StackLayout>
 </ContentPage>
