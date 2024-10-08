@@ -1,8 +1,8 @@
 namespace RUBS.Views;
 
-public partial class NewPage1 : ContentPage
+public partial class PaginaMapa : ContentPage
 {
-	public NewPage1()
+	public PaginaMapa()
 	{
 		InitializeComponent();
 	}

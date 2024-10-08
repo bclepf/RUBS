@@ -16,7 +16,7 @@
             </Tab>
             <Tab Icon="maps.svg">
                 <ShellContent
-                        ContentTemplate="{DataTemplate local:Views.MainPage}" />
+                        ContentTemplate="{DataTemplate local:Views.PaginaMapa}" />
             </Tab>
             <Tab Icon="detalhes.svg">
                 <ShellContent
