@@ -91,6 +91,9 @@
 	  <Compile Update="Views\ListagemEestabelecimentos.xaml.cs">
 	    <DependentUpon>ListagemEestabelecimentos.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\PaginaMapa.xaml.cs">
+	    <DependentUpon>PaginaMapa.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -98,6 +101,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ListagemEestabelecimentos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PaginaMapa.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

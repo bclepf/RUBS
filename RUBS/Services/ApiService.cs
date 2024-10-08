@@ -26,7 +26,7 @@ namespace RUBS.Services
 
             while (continuar)
             {
-                string url = $"https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_municipio={codigoMunicipio}&limit={limit}&offset={offset}";
+                string url = $"https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?codigo_municipio={codigoMunicipio}&status=1&limit={limit}&offset={offset}";
                 var response = await _httpClient.GetStringAsync(url);
 
                 // Aqui estamos deserializando o objeto que contém a lista de estabelecimentos
