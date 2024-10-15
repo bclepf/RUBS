@@ -2,7 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RUBS.Views.PaginaMapa"
-             Title="NewPage1">
-  <maps:Map IsShowingUser="True"/>
+             x:Class="RUBS.Views.PaginaMapa">
+    <maps:Map x:Name="map" >
+        <maps:Map.ItemTemplate>
+            <DataTemplate x:DataType="maps:Pin">
+                <maps:Pin 
+                    Label="{Binding Label}"
+                    Location="{Binding Location}" 
+                    Address="{Binding Address}"/>
+            </DataTemplate>
+        </maps:Map.ItemTemplate>
+    </maps:Map>
 </ContentPage>
+    
+    
