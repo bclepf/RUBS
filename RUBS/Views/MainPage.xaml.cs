@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
+using RUBS.Services;
 
 namespace RUBS.Views
 {
@@ -80,10 +81,9 @@ namespace RUBS.Views
         {
             if (MunicipioPicker.SelectedItem != null)
             {
-                // Captura o código do município selecionado
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
-                codigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
-                await Navigation.PushAsync(new ListagemEestabelecimentos(codigoMunicipioSelecionado));
+                MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
+                await Navigation.PushAsync(new ListagemEestabelecimentos());
             }
         }
     }
