@@ -5,22 +5,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <StackLayout Padding="10">
-        <!-- Removido o campo de entrada para o código do município, pois ele será passado automaticamente -->
-
         <!-- Título da página -->
         <Label FontSize="20" Text="Lista de Estabelecimentos" HorizontalOptions="Center" />
 
         <!-- Lista de estabelecimentos -->
-        <ListView x:Name="ListaEstabelecimentos" HasUnevenRows="True" SeparatorVisibility="Default">
+        <ListView x:Name="ListaEstabelecimentos" 
+                  HasUnevenRows="True" 
+                  SeparatorVisibility="Default"
+                  ItemTapped="ListaEstabelecimentos_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
                             <Label FontSize="20" Text="{Binding nome_fantasia}" />
-                            <Label FontSize="14" Text="{Binding endereco_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding numero_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding numero_telefone_estabelecimento}" />
-                            <Label FontSize="14" Text="{Binding descricao_turno_atendimento}" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

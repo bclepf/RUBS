@@ -1,7 +1,8 @@
+using RUBS.Models; 
 using RUBS.Services;
 using Microsoft.Maui.Controls;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
 
 namespace RUBS.Views
 {
@@ -32,6 +33,19 @@ namespace RUBS.Views
                 ListaEstabelecimentos.ItemsSource = estabelecimentos;
             }
         }
+
+        private async void ListaEstabelecimentos_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item != null)
+            {
+                var estabelecimentoSelecionado = e.Item as Estabelecimento;
+
+                await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
+
+                ListaEstabelecimentos.SelectedItem = null;
+            }
+        }
+
 
         private async Task BuscarEstabelecimentos()
         {
