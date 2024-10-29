@@ -10,6 +10,12 @@ namespace RUBS.Views
         {
             InitializeComponent();
             BindingContext = estabelecimento;
+
+            if (estabelecimento != null)
+            {
+                System.Diagnostics.Debug.WriteLine($"Nome: {estabelecimento.nome_fantasia}");
+            }
         }
+
     }
 }

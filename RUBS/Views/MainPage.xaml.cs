@@ -91,7 +91,7 @@ namespace RUBS.Views
             {
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
                 MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
-                await Navigation.PushAsync(new ListagemEstabelecimentos());
+                new ListagemEstabelecimentos();
             }
         }
     }

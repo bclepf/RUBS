@@ -10,13 +10,13 @@
     Shell.TabBarForegroundColor="#E1395F">
 
     <TabBar>
-        <Tab Icon="home.svg">
+        <Tab Icon="home.svg" Title="Inicio">
             <ShellContent ContentTemplate="{DataTemplate local:Views.MainPage}" />
         </Tab>
-        <Tab Icon="maps.svg">
+        <Tab Icon="maps.svg" Title="Mapa">
             <ShellContent ContentTemplate="{DataTemplate local:Views.PaginaMapa}" />
         </Tab>
-        <Tab Icon="detalhes.svg">
+        <Tab Icon="detalhes.svg" Title="Detalhes">
             <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEstabelecimentos}" />
         </Tab>
     </TabBar>

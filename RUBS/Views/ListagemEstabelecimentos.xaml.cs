@@ -1,5 +1,6 @@
-using RUBS.Models; 
+using RUBS.Models;
 using RUBS.Services;
+using RUBS.Views;
 using Microsoft.Maui.Controls;
 using System;
 using System.Threading.Tasks;
@@ -40,11 +41,21 @@ namespace RUBS.Views
             {
                 var estabelecimentoSelecionado = e.Item as Estabelecimento;
 
-                await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
+                if (estabelecimentoSelecionado != null)
+                {
+                    await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
+                }
+                else
+                {
+                    await DisplayAlert("Erro", "Estabelecimento não encontrado.", "OK");
+                }
+
 
                 ListaEstabelecimentos.SelectedItem = null;
             }
         }
+
+
 
 
         private async Task BuscarEstabelecimentos()
