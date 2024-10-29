@@ -1,16 +1,20 @@
 using RUBS.Services;
 using Microsoft.Maui.Controls;
+using System.Threading.Tasks;
+using System;
 
 namespace RUBS.Views
 {
     public partial class ListagemEstabelecimentos : ContentPage
     {
         private readonly ApiService _apiService;
+        private readonly EstabelecimentoService _estabelecimentoService;
 
         public ListagemEstabelecimentos()
         {
             InitializeComponent();
             _apiService = new ApiService();
+            _estabelecimentoService = new EstabelecimentoService();
         }
 
         protected override async void OnAppearing()
@@ -22,8 +26,7 @@ namespace RUBS.Views
 
         private async Task CarregarEstabelecimentosDoBanco()
         {
-            // Carrega e exibe os estabelecimentos que já estão salvos no banco de dados
-            var estabelecimentos = await _apiService._databaseService.GetEstabelecimentosAsync();
+            var estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync();
             if (estabelecimentos != null)
             {
                 ListaEstabelecimentos.ItemsSource = estabelecimentos;
@@ -32,27 +35,22 @@ namespace RUBS.Views
 
         private async Task BuscarEstabelecimentos()
         {
-            // Obtém o código do município selecionado do serviço
             var codigoMunicipio = MunicipioService.Instance.CodigoMunicipioSelecionado;
 
             if (!string.IsNullOrEmpty(codigoMunicipio))
             {
                 try
                 {
-                    // Realiza a busca paginada e salva os dados novos no banco
+                    // Executa a busca paginada e salva os dados novos no banco de dados
                     await _apiService.GetEstabelecimentosPaginadosAsync(codigoMunicipio);
 
-                    // Atualiza a lista com os dados mais recentes
+                    // Atualiza a lista com os dados mais recentes do banco de dados
                     await CarregarEstabelecimentosDoBanco();
                 }
                 catch (Exception ex)
                 {
                     await DisplayAlert("Erro", ex.Message, "OK");
                 }
-            }
-            else
-            {
-                await DisplayAlert("Erro", "Código do município não pode ser vazio.", "OK");
             }
         }
     }
