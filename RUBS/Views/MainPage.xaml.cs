@@ -1,10 +1,10 @@
 using Newtonsoft.Json;
 using RUBS.Models;
+using RUBS.Services;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
-using RUBS.Services;
 
 namespace RUBS.Views
 {
@@ -12,10 +12,12 @@ namespace RUBS.Views
     {
         // Variável para armazenar o código do município selecionado
         private string codigoMunicipioSelecionado;
+        private readonly DatabaseService _databaseService;
 
         public MainPage()
         {
             InitializeComponent();
+            _databaseService = new DatabaseService();
             CarregarEstados();
         }
 
@@ -72,7 +74,13 @@ namespace RUBS.Views
         {
             if (MunicipioPicker.SelectedItem != null)
             {
-                // Torna o botão de confirmação visível quando um município é selecionado
+                var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
+                MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
+
+                // Limpa os registros atuais no banco de dados antes de carregar os novos dados da cidade
+                await _databaseService.RemoverEstabelecimetnosAsync();
+
+                // Torna o botão de confirmação visível após a seleção do município
                 ConfirmarButton.IsVisible = true;
             }
         }
@@ -83,7 +91,7 @@ namespace RUBS.Views
             {
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
                 MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
-                new ListagemEstabelecimentos();
+                await Navigation.PushAsync(new ListagemEstabelecimentos());
             }
         }
     }

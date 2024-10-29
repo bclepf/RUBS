@@ -27,5 +27,10 @@ namespace RUBS.Services
         {
             return _database.Table<estabelecimentos>().ToListAsync();
         }
+
+        public async Task RemoverEstabelecimetnosAsync()
+        {
+            await _database.DeleteAllAsync<estabelecimentos>();
+        }
     }
 }
