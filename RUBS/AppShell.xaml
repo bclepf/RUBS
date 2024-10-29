@@ -17,7 +17,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:Views.PaginaMapa}" />
         </Tab>
         <Tab Icon="detalhes.svg">
-            <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEestabelecimentos}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEstabelecimentos}" />
         </Tab>
     </TabBar>
 
