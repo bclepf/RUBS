@@ -28,7 +28,7 @@ public partial class PaginaMapa : ContentPage
         // Conectar ao banco de dados (ajuste o caminho conforme necessário)
         var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RUBS.db3");
         _db = new SQLiteConnection(dbPath);
-        _db.CreateTable<estabelecimentos>();
+        _db.CreateTable<EstabelecimentosDB>();
     }
 
     protected override async void OnAppearing()
@@ -45,7 +45,7 @@ public partial class PaginaMapa : ContentPage
         }
 
         // Carregar os estabelecimentos do banco de dados
-        var estabelecimentosList = _db.Table<estabelecimentos>().ToList();
+        var estabelecimentosList = _db.Table<EstabelecimentosDB>().ToList();
 
         if(map.Pins.Count != estabelecimentosList.Count) { 
             map.Pins.Clear();

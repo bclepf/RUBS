@@ -2,7 +2,7 @@
 
 namespace RUBS
 {
-    public class estabelecimentos
+    public class EstabelecimentosDB
     {
         [PrimaryKey, NotNull]
         public long codigo_cnes {  get; set; }

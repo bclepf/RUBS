@@ -37,22 +37,28 @@ namespace RUBS.Views
 
         private async void ListaEstabelecimentos_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            if (e.Item != null)
+            if (e.Item is EstabelecimentosDB estabelecimentoDb)
             {
-                var estabelecimentoSelecionado = e.Item as Estabelecimento;
-
-                if (estabelecimentoSelecionado != null)
+                var estabelecimentoSelecionado = new Estabelecimento
                 {
-                    await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
-                }
-                else
-                {
-                    await DisplayAlert("Erro", "Estabelecimento não encontrado.", "OK");
-                }
+                    codigo_cnes = estabelecimentoDb.codigo_cnes,
+                    nome_fantasia = estabelecimentoDb.nome_fantasia,
+                    endereco_estabelecimento = estabelecimentoDb.endereco_estabelecimento,
+                    numero_estabelecimento = estabelecimentoDb.numero_estabelecimento,
+                    bairro_estabelecimento = estabelecimentoDb.bairro_estabelecimento,
+                    descricao_turno_atendimento = estabelecimentoDb.descricao_turno_atendimento,
+                    numero_telefone_estabelecimento = estabelecimentoDb.numero_telefone_estabelecimento,
+                    
+                };
 
-
-                ListaEstabelecimentos.SelectedItem = null;
+                await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
             }
+            else
+            {
+                await DisplayAlert("Erro", "Estabelecimento não encontrado.", "OK");
+            }
+
+            ListaEstabelecimentos.SelectedItem = null;
         }
 
 

@@ -2,6 +2,6 @@
 {
     public class EstabelecimentosWrapper
     {
-        public List<estabelecimentos> estabelecimentos { get; set; }
+        public List<EstabelecimentosDB> estabelecimentos { get; set; }
     }
 }

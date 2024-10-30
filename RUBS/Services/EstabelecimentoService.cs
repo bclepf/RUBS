@@ -13,12 +13,12 @@ namespace RUBS.Services
             _databaseService = new DatabaseService();
         }
 
-        public Task<List<estabelecimentos>> ObterEstabelecimentosSalvosAsync()
+        public Task<List<EstabelecimentosDB>> ObterEstabelecimentosSalvosAsync()
         {
             return _databaseService.GetEstabelecimentosAsync();
         }
 
-        public async Task SalvarEstabelecimentosAsync(List<estabelecimentos> estabelecimentos)
+        public async Task SalvarEstabelecimentosAsync(List<EstabelecimentosDB> estabelecimentos)
         {
             foreach (var estabelecimento in estabelecimentos)
             {
