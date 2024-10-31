@@ -50,8 +50,10 @@ namespace RUBS.Services
                             !string.IsNullOrEmpty(estabelecimento.bairro_estabelecimento) &&
                             !string.IsNullOrEmpty(estabelecimento.descricao_turno_atendimento) &&
                             !string.IsNullOrEmpty(estabelecimento.numero_telefone_estabelecimento) &&
+                            !string.IsNullOrEmpty(estabelecimento.descricao_natureza_juridica_estabelecimento) &&
                             estabelecimento.latitude_estabelecimento_decimo_grau.HasValue &&
-                            estabelecimento.longitude_estabelecimento_decimo_grau.HasValue)
+                            estabelecimento.longitude_estabelecimento_decimo_grau.HasValue &&
+                            estabelecimento.codigo_tipo_unidade !=0)
                         {
                             // Salva no banco apenas se todos os campos são válidos
                             await _databaseService.SaveEstabelecimentoAsync(estabelecimento);

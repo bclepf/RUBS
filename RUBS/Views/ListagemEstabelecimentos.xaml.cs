@@ -48,7 +48,8 @@ namespace RUBS.Views
                     bairro_estabelecimento = estabelecimentoDb.bairro_estabelecimento,
                     descricao_turno_atendimento = estabelecimentoDb.descricao_turno_atendimento,
                     numero_telefone_estabelecimento = estabelecimentoDb.numero_telefone_estabelecimento,
-                    
+                    codigo_tipo_unidade = estabelecimentoDb.codigo_tipo_unidade,
+                    descricao_natureza_juridica_estabelecimento = estabelecimentoDb.descricao_natureza_juridica_estabelecimento
                 };
 
                 await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));

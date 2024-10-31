@@ -11,5 +11,7 @@
     public string descricao_turno_atendimento { get; set; }
     public double latitude_estabelecimento_decimo_grau { get; set; }
     public double longitude_estabelecimento_decimo_grau { get; set; }
+    public long codigo_tipo_unidade { get; set; }
+    public string descricao_natureza_juridica_estabelecimento { get; set; }
 }
 
