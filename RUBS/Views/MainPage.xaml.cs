@@ -80,10 +80,12 @@ namespace RUBS.Views
                 // Limpa os registros atuais no banco de dados antes de carregar os novos dados da cidade
                 await _databaseService.RemoverEstabelecimetnosAsync();
 
-                // Torna o botão de confirmação visível após a seleção do município
+                // Torna o botão de confirmação visível após a seleção do município 
                 ConfirmarButton.IsVisible = true;
             }
         }
+
+        
 
         private async void OnConfirmarButtonClicked(object sender, EventArgs e)
         {
@@ -91,7 +93,8 @@ namespace RUBS.Views
             {
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
                 MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
-                new ListagemEstabelecimentos();
+                Shell.Current.GoToAsync("//ListagemEstabelecimento");
+
             }
         }
     }

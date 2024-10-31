@@ -10,7 +10,7 @@
         <Label FontSize="18" Text="{Binding numero_estabelecimento}" />
         <Label FontSize="18" Text="{Binding numero_telefone_estabelecimento}" />
         <Label FontSize="18" Text="{Binding descricao_turno_atendimento}" />
-        <Label FontSize="18" Text="{Binding codigo_tipo_unidade}"/>
-        <Label FontSize="18" Text="{Binding descricao_natureza_juridica_estabelecimento}"/>
+        <Label FontSize="18" Text="{Binding codigo_tipo_unidade}" />
+        <Label FontSize="18" Text="{Binding descricao_natureza_juridica_estabelecimento}" />
     </StackLayout>
 </ContentPage>

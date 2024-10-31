@@ -25,7 +25,17 @@ namespace RUBS.Views
             await CarregarEstabelecimentosDoBanco();
             await BuscarEstabelecimentos();
         }
+        private async Task TravarTela()
+        {
+            FundoBlur.IsVisible = true;
+            Shell.SetTabBarIsVisible(this, false);
+        }
 
+        private async Task DestravarTela()
+        {
+            FundoBlur.IsVisible = false;
+            Shell.SetTabBarIsVisible(this, true);
+        }
         private async Task CarregarEstabelecimentosDoBanco()
         {
             var estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync();
@@ -71,6 +81,7 @@ namespace RUBS.Views
 
             if (!string.IsNullOrEmpty(codigoMunicipio))
             {
+                await TravarTela();
                 try
                 {
                     // Executa a busca paginada e salva os dados novos no banco de dados
@@ -83,6 +94,7 @@ namespace RUBS.Views
                 {
                     await DisplayAlert("Erro", ex.Message, "OK");
                 }
+                await DestravarTela();
             }
         }
     }

@@ -3,50 +3,63 @@
     x:Class="RUBS.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout Padding="10">
-        <!-- Botão para selecionar o estado -->
-        <Button
-            x:Name="EstadoButton"
-            HeightRequest="102"
-            HorizontalOptions="FillAndExpand"
-            Text="Selecione um estado"
-            Clicked="OnEstadoButtonClicked" />
 
-        <!-- Picker para selecionar o estado -->
-        <Picker
-            x:Name="EstadoPicker"
-            Title="Selecione um estado"
-            IsVisible="false"
-            HeightRequest="40"
-            HorizontalOptions="FillAndExpand"
-            SelectedIndexChanged="OnEstadoSelected" />
+    <!-- AbsoluteLayout para permitir que o FundoBlur cubra toda a tela -->
+    <AbsoluteLayout>
+        <!-- Conteúdo principal da página -->
+        <StackLayout Padding="10" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
+            <!-- Botão para selecionar o estado -->
+            <Button
+                x:Name="EstadoButton"
+                Clicked="OnEstadoButtonClicked"
+                HeightRequest="102"
+                HorizontalOptions="FillAndExpand"
+                Text="Selecione um estado" />
 
-        <!-- Botão para selecionar a cidade -->
-        <Button
-            x:Name="CidadeButton"
-            HeightRequest="102"
-            HorizontalOptions="FillAndExpand"
-            Text="Selecione uma cidade"
-            IsVisible="false"
-            Clicked="OnCidadeButtonClicked" />
+            <!-- Picker para selecionar o estado -->
+            <Picker
+                x:Name="EstadoPicker"
+                Title="Selecione um estado"
+                HeightRequest="40"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                SelectedIndexChanged="OnEstadoSelected" />
 
-        <!-- Picker para selecionar o município -->
-        <Picker
-            x:Name="MunicipioPicker"
-            Title="Selecione um município"
-            IsVisible="false"
-            HeightRequest="40"
-            HorizontalOptions="FillAndExpand"
-            SelectedIndexChanged="OnMunicipioSelected" />
-        <!-- Adicionado SelectedIndexChanged -->
+            <!-- Botão para selecionar a cidade -->
+            <Button
+                x:Name="CidadeButton"
+                Clicked="OnCidadeButtonClicked"
+                HeightRequest="102"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                Text="Selecione uma cidade" />
 
-        <!-- Botão de confirmação -->
-        <Button
-            x:Name="ConfirmarButton"
-            Text="Confirmar seleção"
-            HeightRequest="102"
-            HorizontalOptions="FillAndExpand"
-            IsVisible="False"
-            Clicked="OnConfirmarButtonClicked" />
-    </StackLayout>
+            <!-- Picker para selecionar o município -->
+            <Picker
+                x:Name="MunicipioPicker"
+                Title="Selecione um município"
+                HeightRequest="40"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="false"
+                SelectedIndexChanged="OnMunicipioSelected" />
+
+            <!-- Botão de confirmação -->
+            <Button
+                x:Name="ConfirmarButton"
+                Clicked="OnConfirmarButtonClicked"
+                HeightRequest="102"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="False"
+                Text="Confirmar seleção" />
+
+            <Label
+                x:Name="ConfirmacaoCarregamento"
+                FontAttributes="Bold"
+                FontSize="20"
+                HorizontalTextAlignment="Center"
+                IsVisible="False"
+                Text="Aguarde enquanto estamos Carregando Informações"
+                TextColor="Red" />
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

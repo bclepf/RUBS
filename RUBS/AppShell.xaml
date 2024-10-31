@@ -11,13 +11,13 @@
 
     <TabBar>
         <Tab Icon="home.svg" Title="Inicio">
-            <ShellContent ContentTemplate="{DataTemplate local:Views.MainPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Views.MainPage}" Route="MainPage"/>
         </Tab>
         <Tab Icon="maps.svg" Title="Mapa">
-            <ShellContent ContentTemplate="{DataTemplate local:Views.PaginaMapa}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Views.PaginaMapa}" Route="PaginaMapa"/>
         </Tab>
         <Tab Icon="detalhes.svg" Title="Detalhes">
-            <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEstabelecimentos}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEstabelecimentos}" Route="ListagemEstabelecimento"/>
         </Tab>
     </TabBar>
 
