@@ -4,62 +4,69 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- AbsoluteLayout para permitir que o FundoBlur cubra toda a tela -->
-    <AbsoluteLayout>
-        <!-- Conteúdo principal da página -->
-        <StackLayout Padding="10" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1">
-            <!-- Botão para selecionar o estado -->
-            <Button
-                x:Name="EstadoButton"
-                Clicked="OnEstadoButtonClicked"
-                HeightRequest="102"
-                HorizontalOptions="FillAndExpand"
-                Text="Selecione um estado" />
+    <!-- StackLayout principal da página -->
+    <StackLayout Padding="10" VerticalOptions="FillAndExpand">
 
-            <!-- Picker para selecionar o estado -->
-            <Picker
-                x:Name="EstadoPicker"
-                Title="Selecione um estado"
-                HeightRequest="40"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="false"
-                SelectedIndexChanged="OnEstadoSelected" />
+        <!-- Mensagem de boas-vindas no topo -->
+        <Label
+            Text="Bem-vindo ao RUBS!"
+            FontSize="24"
+            HorizontalOptions="Center"
+            TextColor="White"
+            Margin="0,0,0,20" />
 
-            <!-- Botão para selecionar a cidade -->
-            <Button
-                x:Name="CidadeButton"
-                Clicked="OnCidadeButtonClicked"
-                HeightRequest="102"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="false"
-                Text="Selecione uma cidade" />
+        <!-- Botão para selecionar o estado -->
+        <Button
+            x:Name="EstadoButton"
+            Clicked="OnEstadoButtonClicked"
+            HeightRequest="102"
+            HorizontalOptions="FillAndExpand"
+            Text="Selecione um estado" />
 
-            <!-- Picker para selecionar o município -->
-            <Picker
-                x:Name="MunicipioPicker"
-                Title="Selecione um município"
-                HeightRequest="40"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="false"
-                SelectedIndexChanged="OnMunicipioSelected" />
+        <!-- Picker para selecionar o estado -->
+        <Picker
+            x:Name="EstadoPicker"
+            Title="Selecione um estado"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="false"
+            SelectedIndexChanged="OnEstadoSelected" />
 
-            <!-- Botão de confirmação -->
-            <Button
-                x:Name="ConfirmarButton"
-                Clicked="OnConfirmarButtonClicked"
-                HeightRequest="102"
-                HorizontalOptions="FillAndExpand"
-                IsVisible="False"
-                Text="Confirmar seleção" />
+        <!-- Botão para selecionar a cidade -->
+        <Button
+            x:Name="CidadeButton"
+            Clicked="OnCidadeButtonClicked"
+            HeightRequest="102"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="false"
+            Text="Selecione uma cidade" />
 
-            <Label
-                x:Name="ConfirmacaoCarregamento"
-                FontAttributes="Bold"
-                FontSize="20"
-                HorizontalTextAlignment="Center"
-                IsVisible="False"
-                Text="Aguarde enquanto estamos Carregando Informações"
-                TextColor="Red" />
-        </StackLayout>
-    </AbsoluteLayout>
+        <!-- Picker para selecionar o município -->
+        <Picker
+            x:Name="MunicipioPicker"
+            Title="Selecione um município"
+            HeightRequest="40"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="false"
+            SelectedIndexChanged="OnMunicipioSelected" />
+
+        <!-- Botão de confirmação -->
+        <Button
+            x:Name="ConfirmarButton"
+            Clicked="OnConfirmarButtonClicked"
+            HeightRequest="102"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="False"
+            Text="Confirmar seleção" />
+
+        <!-- Mensagem de carregamento -->
+        <Label
+            x:Name="ConfirmacaoCarregamento"
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalTextAlignment="Center"
+            IsVisible="False"
+            Text="Aguarde enquanto estamos Carregando Informações"
+            TextColor="Red" />
+    </StackLayout>
 </ContentPage>
