@@ -4,23 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <AbsoluteLayout Padding="10">
+    <StackLayout Padding="10">
         <!--  Título da página  -->
         <Label
             FontSize="20"
             HorizontalOptions="Center"
-            Text="Lista de Estabelecimentos" 
-            AbsoluteLayout.LayoutBounds="0.5, 0, AutoSize, AutoSize"
-            AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            Text="Lista de Estabelecimentos" />
 
         <!--  Lista de estabelecimentos  -->
         <ListView
             x:Name="ListaEstabelecimentos"
             HasUnevenRows="True"
             ItemTapped="ListaEstabelecimentos_ItemTapped"
-            SeparatorVisibility="Default"
-            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-            AbsoluteLayout.LayoutFlags="All">
+            SeparatorVisibility="Default">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -35,8 +31,6 @@
         <!--  Sobreposição com efeito de blur cobrindo toda a tela  -->
         <ContentView
             x:Name="FundoBlur"
-            AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
-            AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="#80000000"
             InputTransparent="False"
             IsVisible="False">
@@ -52,5 +46,5 @@
                     TextColor="White" />
             </StackLayout>
         </ContentView>
-    </AbsoluteLayout>
+    </StackLayout>
 </ContentPage>
