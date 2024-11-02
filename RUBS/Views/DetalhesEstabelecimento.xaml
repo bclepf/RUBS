@@ -4,13 +4,28 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Detalhes do Estabelecimento">
-    <StackLayout Padding="10">
-        <Label FontSize="24" Text="{Binding nome_fantasia}" />
-        <Label FontSize="18" Text="{Binding endereco_estabelecimento}" />
-        <Label FontSize="18" Text="{Binding numero_estabelecimento}" />
-        <Label FontSize="18" Text="{Binding numero_telefone_estabelecimento}" />
-        <Label FontSize="18" Text="{Binding descricao_turno_atendimento}" />
-        <Label FontSize="18" Text="{Binding codigo_tipo_unidade}" />
-        <Label FontSize="18" Text="{Binding descricao_natureza_juridica_estabelecimento}" />
-    </StackLayout>
+
+    <ScrollView>
+        <StackLayout Padding="10">
+            <!-- Nome Fantasia -->
+            <Label FontSize="24" Text="{Binding nome_fantasia}" FontAttributes="Bold" />
+            <Label FontSize="18" Text="Endereço:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding endereco_estabelecimento}" />
+
+            <Label FontSize="18" Text="Número:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding numero_estabelecimento}" />
+
+            <Label FontSize="18" Text="Telefone:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding numero_telefone_estabelecimento}" />
+
+            <Label FontSize="18" Text="Turno de Atendimento:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding descricao_turno_atendimento}" />
+
+            <Label FontSize="18" Text="Tipo de Unidade:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding codigo_tipo_unidade}" />
+
+            <Label FontSize="18" Text="Natureza Jurídica:" FontAttributes="Bold" />
+            <Label FontSize="18" Text="{Binding descricao_natureza_juridica_estabelecimento}" />
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
