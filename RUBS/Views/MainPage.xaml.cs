@@ -46,6 +46,7 @@ namespace RUBS.Views
             if (EstadoPicker.SelectedItem != null)
             {
                 var estadoSelecionado = EstadoPicker.SelectedItem.ToString();
+                EstadoButton.Text = estadoSelecionado; // Atualiza o texto do botão de estado
                 await CarregarCidades(estadoSelecionado);
                 CidadeButton.IsVisible = true; // Torna o botão de cidade visível
             }
@@ -76,6 +77,7 @@ namespace RUBS.Views
             {
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
                 MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
+                CidadeButton.Text = municipioSelecionado.municipio; // Atualiza o texto do botão de cidade
 
                 // Limpa os registros atuais no banco de dados antes de carregar os novos dados da cidade
                 await _databaseService.RemoverEstabelecimetnosAsync();
@@ -85,8 +87,6 @@ namespace RUBS.Views
             }
         }
 
-        
-
         private async void OnConfirmarButtonClicked(object sender, EventArgs e)
         {
             if (MunicipioPicker.SelectedItem != null)
@@ -94,8 +94,8 @@ namespace RUBS.Views
                 var municipioSelecionado = (Cidade)MunicipioPicker.SelectedItem;
                 MunicipioService.Instance.CodigoMunicipioSelecionado = municipioSelecionado.codigo_municipio;
                 Shell.Current.GoToAsync("//ListagemEstabelecimento");
-
             }
         }
     }
 }
+
