@@ -11,6 +11,7 @@ namespace RUBS.Views
     {
         private readonly ApiService _apiService;
         private readonly EstabelecimentoService _estabelecimentoService;
+        private List<EstabelecimentosDB> estabelecimentos;
 
         public ListagemEstabelecimentos()
         {
@@ -36,9 +37,106 @@ namespace RUBS.Views
             FundoBlur.IsVisible = false;
             Shell.SetTabBarIsVisible(this, true);
         }
+
+        private async void Filtrar_Clicked(object sender, EventArgs e)
+        {
+            // Defina a relação de códigos como long
+            var tiposUnidade = new (long codigo, string descricao)[]
+            {
+        (1, "Posto de Saúde"),
+        (2, "Centro de Saúde/Unidade Básica"),
+        (3, "Policlínica"),
+        (5, "Hospital Geral"),
+        (7, "Hospital Especializado"),
+        (15, "Unidade Mista"),
+        (20, "Pronto Socorro Geral"),
+        (21, "Pronto Socorro Especializado"),
+        (22, "Consultório Isolado"),
+        (23, "Clínica/Centro de Especialidade"),
+        (39, "Unidade de Apoio Diagnose e Terapia (SADT Isolado)"),
+        (40, "Unidade Móvel Terrestre"),
+        (42, "Unidade Móvel de Nível Pré-Hospitalar na Área de Urgência"),
+        (43, "Farmácia"),
+        (50, "Unidade de Vigilância em Saúde"),
+        (56, "Cooperativa ou Empresa de Cessão de Trabalhadores na Saúde"),
+        (61, "Centro de Parto Normal - Isolado"),
+        (68, "Hospital/Dia - Isolado"),
+        (69, "Central de Gestão em Saúde"),
+        (70, "Centro de Atenção Hemoterapia e/ou Hematológica"),
+        (71, "Centro de Atenção Psicossocial"),
+        (72, "Centro de Apoio à Saúde da Família"),
+        (73, "Unidade de Atenção à Saúde Indígena"),
+        (74, "Pronto Atendimento"),
+        (75, "Polo Academia da Saúde"),
+        (76, "Telessaúde"),
+        (78, "Central de Regulação Médica das Urgências"),
+        (80, "Serviço de Atenção Domiciliar Isolado (Home Care)"),
+        (81, "Unidade de Atenção em Regime Residencial"),
+        (82, "Oficina Ortopédica"),
+        (83, "Laboratório de Saúde Pública"),
+        (84, "Central de Regulação do Acesso"),
+        (85, "Central de Notificação, Captação e Distribuição de Órgãos Estadual"),
+        (86, "Polo de Prevenção de Doenças e Agravos e Promoção da Saúde"),
+        (87, "Central de Abastecimento"),
+        (88, "Centro de Imunização"),
+            };
+
+            // Exibe a seleção de tipos
+            var tipoSelecionado = await DisplayActionSheet("Selecione o Tipo de Estabelecimento", "Cancelar", null, tiposUnidade.Select(t => t.descricao).ToArray());
+
+            if (tipoSelecionado != null && tipoSelecionado != "Cancelar")
+            {
+                // Obtem o código como long
+                var codigoSelecionado = tiposUnidade.First(t => t.descricao == tipoSelecionado).codigo;
+                TipoSelecionadoLabel.Text = tipoSelecionado;
+                FiltrarEstabelecimentos(codigoSelecionado); // Passando como long
+            }
+        }
+
+        private void FiltrarEstabelecimentos(long codigoTipoUnidade)
+        {
+            if (estabelecimentos != null)
+            {
+                var estabelecimentosFiltrados = estabelecimentos
+                    .Where(e => e.codigo_tipo_unidade == codigoTipoUnidade)
+                    .ToList();
+
+                // Atualiza a lista exibida
+                ListaEstabelecimentos.ItemsSource = estabelecimentosFiltrados;
+
+                // Verifica se há estabelecimentos filtrados e atualiza a mensagem
+                if (estabelecimentosFiltrados.Count == 0)
+                {
+                    MensagemSemEstabelecimentos.Text = "Não há estabelecimentos deste tipo no município selecionado.";
+                    MensagemSemEstabelecimentos.IsVisible = true;
+                }
+                else
+                {
+                    MensagemSemEstabelecimentos.IsVisible = false; // Oculta a mensagem
+                }
+            }
+            else
+            {
+                ListaEstabelecimentos.ItemsSource = new List<EstabelecimentosDB>(); // Limpa a lista
+            }
+        }
+
+        private void RemoverFiltros()
+        {
+            // Redefine a lista para mostrar todos os estabelecimentos
+            ListaEstabelecimentos.ItemsSource = estabelecimentos;
+            // Limpa o texto da etiqueta de filtro, se existir
+            TipoSelecionadoLabel.Text = string.Empty;
+        }
+
+        private void RemoverFiltros_Clicked(object sender, EventArgs e)
+        {
+            RemoverFiltros();
+            MensagemSemEstabelecimentos.IsVisible=false;
+        }
         private async Task CarregarEstabelecimentosDoBanco()
         {
-            var estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync();
+            estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync(); // Inicializa a lista de estabelecimentos
             if (estabelecimentos != null)
             {
                 ListaEstabelecimentos.ItemsSource = estabelecimentos;

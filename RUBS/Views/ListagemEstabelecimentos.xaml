@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="RUBS.Views.ListagemEstabelecimentos"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -10,6 +9,19 @@
             FontSize="20"
             HorizontalOptions="Center"
             Text="Lista de Estabelecimentos" />
+
+        <!-- Botão para filtro -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+            <Button 
+                Text="Filtrar" 
+                Clicked="Filtrar_Clicked" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start" />
+            <Label x:Name="TipoSelecionadoLabel" 
+               Text="Nenhum filtro" 
+               VerticalOptions="Center" 
+               HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
 
         <!--  Lista de estabelecimentos  -->
         <ListView
@@ -27,7 +39,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <Label x:Name="MensagemSemEstabelecimentos" IsVisible="False" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+        <Button Text="Remover Filtros" Clicked="RemoverFiltros_Clicked" />
+        
         <!--  Sobreposição com efeito de blur cobrindo toda a tela  -->
         <ContentView
             x:Name="FundoBlur"
