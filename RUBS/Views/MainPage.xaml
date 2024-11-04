@@ -30,7 +30,8 @@
             HeightRequest="40"
             HorizontalOptions="FillAndExpand"
             IsVisible="false"
-            SelectedIndexChanged="OnEstadoSelected" />
+            SelectedIndexChanged="OnEstadoSelected"
+            Opacity="0"/>
 
         <!-- Botão para selecionar a cidade -->
         <Button
@@ -48,7 +49,8 @@
             HeightRequest="40"
             HorizontalOptions="FillAndExpand"
             IsVisible="false"
-            SelectedIndexChanged="OnMunicipioSelected" />
+            SelectedIndexChanged="OnMunicipioSelected" 
+            Opacity="0"/>
 
         <!-- Botão de confirmação -->
         <Button
