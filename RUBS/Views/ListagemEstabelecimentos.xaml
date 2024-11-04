@@ -17,6 +17,7 @@
                 Clicked="Filtrar_Clicked" 
                 HorizontalOptions="Start" 
                 VerticalOptions="Start" />
+            <ImageButton Source="trashcan.svg" Clicked="RemoverFiltros_Clicked" HeightRequest="40" WidthRequest="40" Margin="10"/>
             <Label x:Name="TipoSelecionadoLabel" 
                Text="Nenhum filtro" 
                VerticalOptions="Center" 
@@ -39,9 +40,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label x:Name="MensagemSemEstabelecimentos" IsVisible="False" TextColor="Red" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-        <Button Text="Remover Filtros" Clicked="RemoverFiltros_Clicked" />
+        <Label x:Name="MensagemSemEstabelecimentos" IsVisible="False" TextColor="#E1395F" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
         
+
+
         <!--  Sobreposição com efeito de blur cobrindo toda a tela  -->
         <ContentView
             x:Name="FundoBlur"
@@ -52,7 +54,7 @@
                 <TapGestureRecognizer />
             </ContentView.GestureRecognizers>
 
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0">
                 <Label
                     FontSize="Large"
                     HorizontalTextAlignment="Center"
