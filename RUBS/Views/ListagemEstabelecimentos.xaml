@@ -16,6 +16,7 @@
             Orientation="Horizontal"
             VerticalOptions="Start">
             <Button
+                TextColor="White"
                 Clicked="Filtrar_Clicked"
                 HorizontalOptions="Start"
                 Text="Filtrar"
