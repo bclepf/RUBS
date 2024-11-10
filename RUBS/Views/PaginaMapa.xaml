@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RUBS.Views.PaginaMapa">
-    <maps:Map x:Name="map" >
-        <maps:Map.ItemTemplate>
-            <DataTemplate x:DataType="maps:Pin">
-                <maps:Pin 
-                    Label="{Binding Label}"
-                    Location="{Binding Location}" 
-                    Address="{Binding Address}"/>
-            </DataTemplate>
-        </maps:Map.ItemTemplate>
-    </maps:Map>
+<ContentPage
+    x:Class="RUBS.Views.PaginaMapa"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps">
+    <StackLayout>
+        <Button
+            x:Name="BotaoSUS"
+            BackgroundColor="Gray"
+            Clicked="OnBotaoSUSClicked"
+            Text="Todos"
+            TextColor="White" />
+        <maps:Map x:Name="map">
+            <maps:Map.ItemTemplate>
+                <DataTemplate x:DataType="maps:Pin">
+                    <maps:Pin
+                        Address="{Binding Address}"
+                        Label="{Binding Label}"
+                        Location="{Binding Location}" />
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
+    </StackLayout>
 </ContentPage>
-    
-    
+
