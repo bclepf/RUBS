@@ -10,18 +10,27 @@
             HorizontalOptions="Center"
             Text="Lista de Estabelecimentos" />
 
-        <!-- Botão para filtro -->
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
-            <Button 
-                Text="Filtrar" 
-                Clicked="Filtrar_Clicked" 
-                HorizontalOptions="Start" 
+        <!--  Botão para filtro  -->
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            VerticalOptions="Start">
+            <Button
+                Clicked="Filtrar_Clicked"
+                HorizontalOptions="Start"
+                Text="Filtrar"
                 VerticalOptions="Start" />
-            <ImageButton Source="trashcan.svg" Clicked="RemoverFiltros_Clicked" HeightRequest="40" WidthRequest="40" Margin="10"/>
-            <Label x:Name="TipoSelecionadoLabel" 
-               Text="Nenhum filtro" 
-               VerticalOptions="Center" 
-               HorizontalOptions="CenterAndExpand"/>
+            <ImageButton
+                Margin="10"
+                Clicked="RemoverFiltros_Clicked"
+                HeightRequest="40"
+                Source="trashcan.svg"
+                WidthRequest="40" />
+            <Label
+                x:Name="TipoSelecionadoLabel"
+                HorizontalOptions="CenterAndExpand"
+                Text="Nenhum filtro"
+                VerticalOptions="Center" />
         </StackLayout>
 
         <!--  Lista de estabelecimentos  -->
@@ -33,15 +42,29 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label FontSize="20" Text="{Binding nome_fantasia}" />
+                        <StackLayout Padding="10" Orientation="Horizontal">
+                            <!--  Imagem à esquerda do item  -->
+                            <Image
+                                Margin="10"
+                                HeightRequest="40"
+                                Source="{Binding TipoImagem}"
+                                WidthRequest="40" />
+
+                            <!--  Nome do Estabelecimento  -->
+                            <Label FontSize="16" Text="{Binding nome_fantasia}" VerticalTextAlignment="Center"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label x:Name="MensagemSemEstabelecimentos" IsVisible="False" TextColor="#E1395F" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
-        
+        <Label
+            x:Name="MensagemSemEstabelecimentos"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            IsVisible="False"
+            TextColor="#E1395F"
+            VerticalTextAlignment="Center" />
+
 
 
         <!--  Sobreposição com efeito de blur cobrindo toda a tela  -->
@@ -54,7 +77,10 @@
                 <TapGestureRecognizer />
             </ContentView.GestureRecognizers>
 
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0">
+            <StackLayout
+                Grid.Row="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
                 <Label
                     FontSize="Large"
                     HorizontalTextAlignment="Center"

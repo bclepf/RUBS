@@ -151,6 +151,7 @@ namespace RUBS.Views
                 }
                 else
                 {
+                    await DisplayAlert("Atenção", "Nenhum estabelecimento SUS encontrado", "Ok");
                     _logger?.LogWarning("Nenhum estabelecimento SUS encontrado.");
                 }
             }

@@ -24,5 +24,6 @@ namespace RUBS
         public long codigo_tipo_unidade {  get; set; }
         [NotNull]
         public string descricao_natureza_juridica_estabelecimento { get; set; }
+        public string TipoImagem { get; set; }
     }
 }

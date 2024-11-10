@@ -137,8 +137,28 @@ namespace RUBS.Views
         private async Task CarregarEstabelecimentosDoBanco()
         {
             estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync(); // Inicializa a lista de estabelecimentos
+
             if (estabelecimentos != null)
             {
+                // Atualiza a imagem do pin com base no tipo de unidade
+                foreach (var estabelecimento in estabelecimentos)
+                {
+                    if (estabelecimento.codigo_tipo_unidade == 5 || estabelecimento.codigo_tipo_unidade == 7 || estabelecimento.codigo_tipo_unidade == 62)
+                    {
+                        estabelecimento.TipoImagem = "hospital.svg"; // Imagem de hospital
+                    }
+                    else if (estabelecimento.codigo_tipo_unidade == 1 || estabelecimento.codigo_tipo_unidade == 2 || estabelecimento.codigo_tipo_unidade == 4 ||
+                             estabelecimento.codigo_tipo_unidade == 43 || estabelecimento.codigo_tipo_unidade == 73 || estabelecimento.codigo_tipo_unidade == 80 ||
+                             estabelecimento.codigo_tipo_unidade == 85)
+                    {
+                        estabelecimento.TipoImagem = "clinica.svg"; // Imagem de clínica
+                    }
+                    else
+                    {
+                        estabelecimento.TipoImagem = "medico.svg"; // Imagem padrão
+                    }
+                }
+
                 ListaEstabelecimentos.ItemsSource = estabelecimentos;
             }
         }
@@ -156,8 +176,6 @@ namespace RUBS.Views
                     bairro_estabelecimento = estabelecimentoDb.bairro_estabelecimento,
                     descricao_turno_atendimento = estabelecimentoDb.descricao_turno_atendimento,
                     numero_telefone_estabelecimento = estabelecimentoDb.numero_telefone_estabelecimento,
-                    codigo_tipo_unidade = estabelecimentoDb.codigo_tipo_unidade,
-                    descricao_natureza_juridica_estabelecimento = estabelecimentoDb.descricao_natureza_juridica_estabelecimento
                 };
 
                 await Navigation.PushAsync(new DetalhesEstabelecimento(estabelecimentoSelecionado));
