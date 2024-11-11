@@ -19,6 +19,7 @@
         <Button
             x:Name="EstadoButton"
             Clicked="OnEstadoButtonClicked"
+            TextColor="White"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
             Text="Selecione um estado" />
@@ -36,6 +37,7 @@
         <!-- Botão para selecionar a cidade -->
         <Button
             x:Name="CidadeButton"
+            TextColor="White"
             Clicked="OnCidadeButtonClicked"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
@@ -55,20 +57,11 @@
         <!-- Botão de confirmação -->
         <Button
             x:Name="ConfirmarButton"
+            TextColor="White"
             Clicked="OnConfirmarButtonClicked"
             HeightRequest="102"
             HorizontalOptions="FillAndExpand"
             IsVisible="False"
             Text="Confirmar seleção" />
-
-        <!-- Mensagem de carregamento -->
-        <Label
-            x:Name="ConfirmacaoCarregamento"
-            FontAttributes="Bold"
-            FontSize="20"
-            HorizontalTextAlignment="Center"
-            IsVisible="False"
-            Text="Aguarde enquanto estamos Carregando Informações"
-            TextColor="Red" />
     </StackLayout>
 </ContentPage>
