@@ -1,16 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RUBS.Services
 {
-    internal class MunicipioService
+    public class MunicipioService
     {
         private static MunicipioService _instance;
         public static MunicipioService Instance => _instance ??= new MunicipioService();
 
-        public string CodigoMunicipioSelecionado { get; set; }
+        private string _codigoMunicipioSelecionado;
+
+        public string CodigoMunicipioSelecionado
+        {
+            get => _codigoMunicipioSelecionado;
+            set
+            {
+                if (_codigoMunicipioSelecionado != value)
+                {
+                    _codigoMunicipioSelecionado = value;
+                    OnMunicipioSelecionadoChanged?.Invoke(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        // Evento que pode ser utilizado para notificar quando o município selecionado muda
+        public event EventHandler OnMunicipioSelecionadoChanged;
+
+        // Construtor privado para evitar instância externa
+        private MunicipioService() { }
     }
 }
