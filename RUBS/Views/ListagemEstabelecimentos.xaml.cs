@@ -143,11 +143,12 @@ namespace RUBS.Views
                 // Atualiza a imagem do pin com base no tipo de unidade
                 foreach (var estabelecimento in estabelecimentos)
                 {
-                    if (estabelecimento.codigo_tipo_unidade == 5 || estabelecimento.codigo_tipo_unidade == 7 || estabelecimento.codigo_tipo_unidade == 62)
+                    if (estabelecimento.codigo_tipo_unidade == 5 || estabelecimento.codigo_tipo_unidade == 7 || estabelecimento.codigo_tipo_unidade == 62 || 
+                        estabelecimento.codigo_tipo_unidade == 20 || estabelecimento.codigo_tipo_unidade == 21 || estabelecimento.codigo_tipo_unidade == 73)
                     {
                         estabelecimento.TipoImagem = "hospital.svg"; // Imagem de hospital
                     }
-                    else if (estabelecimento.codigo_tipo_unidade == 1 || estabelecimento.codigo_tipo_unidade == 2 || estabelecimento.codigo_tipo_unidade == 4 ||
+                    else if (estabelecimento.codigo_tipo_unidade == 1 || estabelecimento.codigo_tipo_unidade == 2 || estabelecimento.codigo_tipo_unidade == 4 || estabelecimento.codigo_tipo_unidade == 15 ||
                              estabelecimento.codigo_tipo_unidade == 43 || estabelecimento.codigo_tipo_unidade == 73 || estabelecimento.codigo_tipo_unidade == 80 ||
                              estabelecimento.codigo_tipo_unidade == 85)
                     {
