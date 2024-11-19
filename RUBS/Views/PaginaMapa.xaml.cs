@@ -128,7 +128,7 @@ namespace RUBS.Views
             SusLigado = !SusLigado;
 
             BotaoSUS.Text = SusLigado ? "SUS" : "Todos";
-            BotaoSUS.BackgroundColor = SusLigado ? Colors.Green : Colors.Gray;
+            BotaoSUS.BackgroundColor = SusLigado ? Color.FromArgb("#39559E") : Color.FromArgb("#E1395F");
 
             map.Pins.Clear();
             idsDePinsAdicionados.Clear();

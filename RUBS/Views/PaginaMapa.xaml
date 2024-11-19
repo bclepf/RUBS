@@ -21,7 +21,7 @@
         <!-- Botão centralizado no topo -->
         <Button
             x:Name="BotaoSUS"
-            BackgroundColor="Gray"
+            BackgroundColor="#E1395F"
             Clicked="OnBotaoSUSClicked"
             Text="Todos"
             TextColor="White"

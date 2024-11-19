@@ -16,7 +16,7 @@
         <Tab Icon="maps.svg" Title="Mapa">
             <ShellContent ContentTemplate="{DataTemplate local:Views.PaginaMapa}" Route="PaginaMapa"/>
         </Tab>
-        <Tab Icon="detalhes.svg" Title="Detalhes">
+        <Tab Icon="detalhes.svg" Title="Listagem">
             <ShellContent ContentTemplate="{DataTemplate local:Views.ListagemEstabelecimentos}" Route="ListagemEstabelecimento"/>
         </Tab>
     </TabBar>

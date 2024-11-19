@@ -4,64 +4,91 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- StackLayout principal da página -->
+    <!--  StackLayout principal da página  -->
     <StackLayout Padding="10" VerticalOptions="FillAndExpand">
 
-        <!-- Mensagem de boas-vindas no topo -->
+        <!--  Mensagem de boas-vindas no topo  -->
         <Label
-            Text="Bem-vindo ao RUBS!"
-            FontSize="24"
+            Margin="0,0,0,20"
+            FontFamily="Sriracha-Regular"
+            FontSize="28"
             HorizontalOptions="Center"
-            TextColor="White"
-            Margin="0,0,0,20" />
+            Text="Bem-vindo ao RUBS!" 
+        />
+        <Label
+            Margin="0,0,0,20"
+            FontFamily="Sriracha-Regular"
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="Escolha um estado e cidade nos botões abaixo e aproveite!" 
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+        />  
 
-        <!-- Botão para selecionar o estado -->
+        <!--  Botão para selecionar o estado  -->
         <Button
             x:Name="EstadoButton"
             Clicked="OnEstadoButtonClicked"
-            TextColor="White"
-            HeightRequest="102"
+            CornerRadius="80"
+            FontSize="Large"
+            HeightRequest="80"
+            WidthRequest="300"
             HorizontalOptions="FillAndExpand"
-            Text="Selecione um estado" />
+            Text="Selecione um estado">
+            <Button.TextColor>
+                <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+            </Button.TextColor>
+        </Button>
 
-        <!-- Picker para selecionar o estado -->
+
+        <!--  Picker para selecionar o estado  -->
         <Picker
             x:Name="EstadoPicker"
             Title="Selecione um estado"
             HeightRequest="40"
             HorizontalOptions="FillAndExpand"
             IsVisible="false"
-            SelectedIndexChanged="OnEstadoSelected"
-            Opacity="0"/>
+            Opacity="0"
+            SelectedIndexChanged="OnEstadoSelected" />
 
-        <!-- Botão para selecionar a cidade -->
+        <!--  Botão para selecionar a cidade  -->
         <Button
             x:Name="CidadeButton"
-            TextColor="White"
             Clicked="OnCidadeButtonClicked"
-            HeightRequest="102"
+            CornerRadius="80"
+            HeightRequest="80"
+            WidthRequest="300"
             HorizontalOptions="FillAndExpand"
             IsVisible="false"
-            Text="Selecione uma cidade" />
+            Text="Selecione uma cidade">
+            <Button.TextColor>
+                <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+            </Button.TextColor>
+        </Button>
 
-        <!-- Picker para selecionar o município -->
+        <!--  Picker para selecionar o município  -->
         <Picker
             x:Name="MunicipioPicker"
             Title="Selecione um município"
             HeightRequest="40"
             HorizontalOptions="FillAndExpand"
             IsVisible="false"
-            SelectedIndexChanged="OnMunicipioSelected" 
-            Opacity="0"/>
+            Opacity="0"
+            SelectedIndexChanged="OnMunicipioSelected" />
 
-        <!-- Botão de confirmação -->
+        <!--  Botão de confirmação  -->
         <Button
             x:Name="ConfirmarButton"
-            TextColor="White"
             Clicked="OnConfirmarButtonClicked"
-            HeightRequest="102"
+            HeightRequest="80"
+            WidthRequest="300"
             HorizontalOptions="FillAndExpand"
             IsVisible="False"
-            Text="Confirmar seleção" />
+            Text="Confirmar seleção"
+            CornerRadius="80">
+            <Button.TextColor>
+                <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+            </Button.TextColor>
+        </Button>
     </StackLayout>
 </ContentPage>

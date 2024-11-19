@@ -8,7 +8,8 @@
         <Label
             FontSize="20"
             HorizontalOptions="Center"
-            Text="Lista de Estabelecimentos" />
+            Text="Lista de Estabelecimentos" 
+            FontFamily="Sriracha-Regular"/>
 
         <!--  Botão para filtro  -->
         <StackLayout
@@ -16,11 +17,15 @@
             Orientation="Horizontal"
             VerticalOptions="Start">
             <Button
-                TextColor="White"
                 Clicked="Filtrar_Clicked"
                 HorizontalOptions="Start"
                 Text="Filtrar"
-                VerticalOptions="Start" />
+                VerticalOptions="Start"
+                CornerRadius="80">
+                <Button.TextColor>
+                    <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+                </Button.TextColor>
+            </Button>
             <ImageButton
                 Margin="10"
                 Clicked="RemoverFiltros_Clicked"
@@ -31,7 +36,8 @@
                 x:Name="TipoSelecionadoLabel"
                 HorizontalOptions="CenterAndExpand"
                 Text="Nenhum filtro"
-                VerticalOptions="Center" />
+                VerticalOptions="Center" 
+                FontFamily="Sriracha-Regular"/>
         </StackLayout>
 
         <!--  Lista de estabelecimentos  -->
@@ -52,7 +58,10 @@
                                 WidthRequest="40" />
 
                             <!--  Nome do Estabelecimento  -->
-                            <Label FontSize="16" Text="{Binding nome_fantasia}" VerticalTextAlignment="Center"/>
+                            <Label
+                                FontSize="16"
+                                Text="{Binding nome_fantasia}"
+                                VerticalTextAlignment="Center" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

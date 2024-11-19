@@ -32,5 +32,10 @@ namespace RUBS.Services
         {
             await _database.DeleteAllAsync<EstabelecimentosDB>();
         }
+        public async Task<bool> TemRegistrosAsync()
+        {
+            var RegistrosDB = await _database.Table<EstabelecimentosDB>().CountAsync();
+            return RegistrosDB > 0; // Retorna true se houver pelo menos 1 registro
+        }
     }
 }

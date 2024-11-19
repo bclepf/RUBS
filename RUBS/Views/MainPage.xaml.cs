@@ -21,6 +21,12 @@ namespace RUBS.Views
             CarregarEstados();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await TemRegistros();
+        }
+
         private async void CarregarEstados()
         {
             // Lista de estados
@@ -96,6 +102,22 @@ namespace RUBS.Views
                 Shell.Current.GoToAsync("//ListagemEstabelecimento");
             }
         }
+        private async Task TemRegistros()
+        {
+            // Aguarde a execução do método assíncrono para obter o resultado
+            bool temRegistros = await _databaseService.TemRegistrosAsync();
+
+            // Verifique se há registros e altere a visibilidade da tab
+            if (!temRegistros)
+            {
+                Shell.SetTabBarIsVisible(this, false);
+            }
+            else
+            {
+                Shell.SetTabBarIsVisible(this, true); // Se quiser mostrar a tab quando houver registros
+            }
+        }
+
     }
 }
 
