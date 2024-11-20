@@ -8,15 +8,23 @@
     <ScrollView>
         <StackLayout Padding="20" Spacing="10">
             <!-- Nome -->
-            <Label FontSize="26" Text="{Binding nome_fantasia}" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center" />
+            <Label FontSize="26" Text="{Binding nome_fantasia}" FontAttributes="Bold" HorizontalTextAlignment="Center">
+                <Label.TextColor>
+                    <AppThemeBinding Dark="White" Light="Black" />
+                </Label.TextColor>
+            </Label>
 
             <!-- a primeira barra -->
-            <BoxView HeightRequest="2" Color="Gray" Margin="0,10,0,10"/>
+            <BoxView HeightRequest="2" Color="Gray" Margin="0,10,0,10" />
 
             <!-- Endereço -->
             <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
                 <StackLayout>
-                    <Label FontSize="18" Text="Endereço:" FontAttributes="Bold" TextColor="Black" />
+                    <Label FontSize="18" Text="Endereço:" FontAttributes="Bold">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="White" Light="Black" />
+                        </Label.TextColor>
+                    </Label>
                     <Label FontSize="16" Text="{Binding endereco_estabelecimento}" TextColor="Gray" />
                 </StackLayout>
             </Frame>
@@ -24,7 +32,11 @@
             <!-- Número -->
             <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
                 <StackLayout>
-                    <Label FontSize="18" Text="Número:" FontAttributes="Bold" TextColor="Black" />
+                    <Label FontSize="18" Text="Número:" FontAttributes="Bold">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="White" Light="Black" />
+                        </Label.TextColor>
+                    </Label>
                     <Label FontSize="16" Text="{Binding numero_estabelecimento}" TextColor="Gray" />
                 </StackLayout>
             </Frame>
@@ -32,7 +44,11 @@
             <!-- Telefone -->
             <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
                 <StackLayout>
-                    <Label FontSize="18" Text="Telefone:" FontAttributes="Bold" TextColor="Black" />
+                    <Label FontSize="18" Text="Telefone:" FontAttributes="Bold">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="White" Light="Black" />
+                        </Label.TextColor>
+                    </Label>
                     <Label FontSize="16" Text="{Binding numero_telefone_estabelecimento}" TextColor="Gray" />
                 </StackLayout>
             </Frame>
@@ -40,7 +56,11 @@
             <!-- Turno de Atendimento -->
             <Frame BorderColor="Gray" CornerRadius="10" Padding="10">
                 <StackLayout>
-                    <Label FontSize="18" Text="Turno de Atendimento:" FontAttributes="Bold" TextColor="Black" />
+                    <Label FontSize="18" Text="Turno de Atendimento:" FontAttributes="Bold">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="White" Light="Black" />
+                        </Label.TextColor>
+                    </Label>
                     <Label FontSize="16" Text="{Binding descricao_turno_atendimento}" TextColor="Gray" />
                 </StackLayout>
             </Frame>
