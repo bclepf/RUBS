@@ -133,6 +133,8 @@ namespace RUBS.Views
         {
             RemoverFiltros();
             MensagemSemEstabelecimentos.IsVisible=false;
+            TipoSelecionadoLabel.Text = "Nenhum filtro";
+            TipoSelecionadoLabel.IsVisible = true;
         }
         private async Task CarregarEstabelecimentosDoBanco()
         {

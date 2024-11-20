@@ -33,11 +33,11 @@
                 Source="trashcan.svg"
                 WidthRequest="40" />
             <Label
-                x:Name="TipoSelecionadoLabel"
-                HorizontalOptions="CenterAndExpand"
-                Text="Nenhum filtro"
-                VerticalOptions="Center" 
-                FontFamily="Sriracha-Regular"/>
+        x:Name="TipoSelecionadoLabel"
+        HorizontalOptions="CenterAndExpand"
+        Text="Nenhum filtro"
+        VerticalOptions="Center" 
+        FontFamily="Sriracha-Regular"/>
         </StackLayout>
 
         <!--  Lista de estabelecimentos  -->
