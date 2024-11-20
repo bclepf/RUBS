@@ -25,7 +25,11 @@
                             <AppThemeBinding Dark="White" Light="Black" />
                         </Label.TextColor>
                     </Label>
-                    <Label FontSize="16" Text="{Binding endereco_estabelecimento}" TextColor="Gray" />
+                    <Label FontSize="16" Text="{Binding endereco_estabelecimento}">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="white" Light="#black" />
+                        </Label.TextColor>
+                    </Label>
                 </StackLayout>
             </Frame>
 
@@ -37,7 +41,11 @@
                             <AppThemeBinding Dark="White" Light="Black" />
                         </Label.TextColor>
                     </Label>
-                    <Label FontSize="16" Text="{Binding numero_estabelecimento}" TextColor="Gray" />
+                    <Label FontSize="16" Text="{Binding numero_estabelecimento}">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="white" Light="black" />
+                        </Label.TextColor>
+                    </Label>
                 </StackLayout>
             </Frame>
 
@@ -49,7 +57,11 @@
                             <AppThemeBinding Dark="White" Light="Black" />
                         </Label.TextColor>
                     </Label>
-                    <Label FontSize="16" Text="{Binding numero_telefone_estabelecimento}" TextColor="Gray" />
+                    <Label FontSize="16" Text="{Binding numero_telefone_estabelecimento}">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="white" Light="#black" />
+                        </Label.TextColor>
+                    </Label>
                 </StackLayout>
             </Frame>
 
@@ -61,7 +73,11 @@
                             <AppThemeBinding Dark="White" Light="Black" />
                         </Label.TextColor>
                     </Label>
-                    <Label FontSize="16" Text="{Binding descricao_turno_atendimento}" TextColor="Gray" />
+                    <Label FontSize="16" Text="{Binding descricao_turno_atendimento}">
+                        <Label.TextColor>
+                            <AppThemeBinding Dark="white" Light="#black" />
+                        </Label.TextColor>
+                    </Label>
                 </StackLayout>
             </Frame>
         </StackLayout>
