@@ -6,10 +6,10 @@
     <StackLayout Padding="10">
         <!--  Título da página  -->
         <Label
+            FontFamily="Sriracha-Regular"
             FontSize="20"
             HorizontalOptions="Center"
-            Text="Lista de Estabelecimentos" 
-            FontFamily="Sriracha-Regular"/>
+            Text="Lista de Estabelecimentos" />
 
         <!--  Botão para filtro  -->
         <StackLayout
@@ -17,11 +17,21 @@
             Orientation="Horizontal"
             VerticalOptions="Start">
             <Button
+                x:Name="ApenasSus"
+                BackgroundColor="#E1395F"
+                Clicked="OnApenasSusClicked"
+                CornerRadius="80"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="SUS"
+                TextColor="White"
+                VerticalOptions="Start" />
+            <Button
                 Clicked="Filtrar_Clicked"
+                CornerRadius="80"
                 HorizontalOptions="Start"
                 Text="Filtrar"
-                VerticalOptions="Start"
-                CornerRadius="80">
+                VerticalOptions="Start">
                 <Button.TextColor>
                     <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
                 </Button.TextColor>
@@ -33,11 +43,11 @@
                 Source="trashcan.svg"
                 WidthRequest="40" />
             <Label
-        x:Name="TipoSelecionadoLabel"
-        HorizontalOptions="CenterAndExpand"
-        Text="Nenhum filtro"
-        VerticalOptions="Center" 
-        FontFamily="Sriracha-Regular"/>
+                x:Name="TipoSelecionadoLabel"
+                FontFamily="Sriracha-Regular"
+                HorizontalOptions="CenterAndExpand"
+                Text="Nenhum filtro"
+                VerticalOptions="CenterAndExpand" />
         </StackLayout>
 
         <!--  Lista de estabelecimentos  -->
@@ -61,7 +71,9 @@
                             <Label
                                 FontSize="16"
                                 Text="{Binding nome_fantasia}"
-                                VerticalTextAlignment="Center" />
+                                VerticalTextAlignment="Center" 
+                                HorizontalTextAlignment="Center"
+                                />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

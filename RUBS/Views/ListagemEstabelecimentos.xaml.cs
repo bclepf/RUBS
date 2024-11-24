@@ -136,6 +136,44 @@ namespace RUBS.Views
             TipoSelecionadoLabel.Text = "Nenhum filtro";
             TipoSelecionadoLabel.IsVisible = true;
         }
+
+        private readonly List<string> naturezasPermitidas = new List<string>
+{
+            "1015", "1023", "1031", "1040", "1058", "1066", "1074", "1082",
+            "1104", "1112", "1120", "1139", "1147", "1155", "1163", "1171",
+            "1180", "1198", "1210", "1228", "1236", "1244", "1252", "1260",
+            "1279", "1287", "1295", "1309", "1317", "1325", "1333", "1341"
+         };
+
+        private void OnApenasSusClicked(object sender, EventArgs e)
+        {
+            if (estabelecimentos != null)
+            {
+                var estabelecimentosFiltrados = estabelecimentos
+                    .Where(e => naturezasPermitidas.Contains(e.descricao_natureza_juridica_estabelecimento))
+                    .ToList();
+
+                ListaEstabelecimentos.ItemsSource = estabelecimentosFiltrados;
+
+                if (estabelecimentosFiltrados.Count == 0)
+                {
+                    MensagemSemEstabelecimentos.Text = "Não há estabelecimentos com as naturezas jurídicas permitidas.";
+                    MensagemSemEstabelecimentos.IsVisible = true;
+                }
+                else
+                {
+                    MensagemSemEstabelecimentos.IsVisible = false;
+                }
+                TipoSelecionadoLabel.Text = "Apenas estabelecimentos SUS";
+
+
+            }
+            else
+            {
+                ListaEstabelecimentos.ItemsSource = new List<EstabelecimentosDB>();
+            }
+        }
+
         private async Task CarregarEstabelecimentosDoBanco()
         {
             estabelecimentos = await _estabelecimentoService.ObterEstabelecimentosSalvosAsync(); // Inicializa a lista de estabelecimentos
