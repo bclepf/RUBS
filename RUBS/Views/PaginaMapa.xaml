@@ -24,8 +24,12 @@
             BackgroundColor="#E1395F"
             Clicked="OnBotaoSUSClicked"
             Text="Todos"
-            TextColor="White"
+            
             HorizontalOptions="Center"
-            VerticalOptions="Start"/>
+            VerticalOptions="Start">
+            <Button.TextColor>
+                <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+            </Button.TextColor>
+        </Button>
     </Grid>
 </ContentPage>

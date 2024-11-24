@@ -24,8 +24,12 @@
                 FontSize="20"
                 HorizontalOptions="Start"
                 Text="SUS"
-                TextColor="White"
-                VerticalOptions="Start" />
+                VerticalOptions="Start">
+                <Button.TextColor>
+                <AppThemeBinding Dark="{StaticResource White}" Light="{StaticResource Black}" />
+                </Button.TextColor>
+            </Button>
+
             <Button
                 Clicked="Filtrar_Clicked"
                 CornerRadius="80"
